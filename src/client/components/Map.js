@@ -54,7 +54,7 @@ class Map extends React.Component{
 
   initMap() {
     const loader = new Loader({
-      apiKey: "AIzaSyC4I14f8zgGfHuMQsTucEkPUBH7emuJtv0",
+      apiKey: "",
       version: "weekly",
     });
     loader.load().then(() => {
@@ -86,7 +86,7 @@ class Map extends React.Component{
         <div id="map"></div>
 
 
-        <div id="save-changes-modal" className="modal" tabindex="-1">
+        <div id="save-changes-modal" className="modal" tabIndex="-1">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
