@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
-import './app.css';
-import ReactImage from './react.png';
+import './App.css';
+import Map from './components/Map';
+import { BrowserRouter, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class App extends Component {
-  state = { username: null };
 
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
-  }
-
+class App extends Component {
   render() {
-    const { username } = this.state;
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route path="/map" render={() => ( <Map /> )} exact/>
+
+        </div>
+      </BrowserRouter>
     );
   }
 }
+export default App;
