@@ -7,7 +7,7 @@ import News from './components/News'
 
 import { BrowserRouter, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './app.css';
 
 
 class App extends Component {
