@@ -11,7 +11,7 @@ class Donate extends React.Component{
   }
 
   navHighlight() {
-    let navItems = Array.from(document.getElementsByclassNameName("nav-link"));
+    let navItems = Array.from(document.getElementsByClassName("nav-link"));
     navItems.forEach((item, i) => {
       navItems[i].classNameList.remove("active")
     });
