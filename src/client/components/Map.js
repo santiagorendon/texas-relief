@@ -30,7 +30,11 @@ class Map extends React.Component{
     })
 
     if(props.iconImage) {
-      marker.setIcon(props.iconImage);
+      var icon = {
+      url: props.iconImage, // url
+      scaledSize: new google.maps.Size(25, 25), // scaled size
+    }
+      this.marker.setIcon(icon);
     }
 
     if(props.content) {
@@ -54,7 +58,7 @@ class Map extends React.Component{
 
   initMap() {
     const loader = new Loader({
-      apiKey: "",
+      apiKey: "AIzaSyC4I14f8zgGfHuMQsTucEkPUBH7emuJtv0",
       version: "weekly",
     });
     loader.load().then(() => {
@@ -66,7 +70,7 @@ class Map extends React.Component{
       google.maps.event.addListener(map, 'click',
        (event) => {
         //add marker
-        this.addMarker({map: map, coords:event.latLng});
+        this.addMarker({map: map, coords:event.latLng, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
         this.displayModal();
       });
 
