@@ -1,15 +1,18 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Post from './Post';
 import '../styles/forum.css';
 
 class Forum extends React.Component{
   constructor() {
     super();
     this.state = {
+      posts: []
     }
     this.componentDidMount = this.componentDidMount.bind(this);
+      this.createPost = this.createPost.bind(this);
   }
-
+  
   navHighlight() {
     let navItems = Array.from(document.getElementsByClassName("nav-link"));
     navItems.forEach((item, i) => {
@@ -18,7 +21,53 @@ class Forum extends React.Component{
     navItems[2].classList.add("active")
   }
 
+  displayModal() {
+    const modal = document.getElementById("post-modal");
+    modal.style.display = "block";
+  }
+
+  closeModal() {
+    const modal = document.getElementById("post-modal");
+    modal.style.display = "none";
+  }
+
+  createPost() {
+
+    let title = document.getElementById("postTitle").value;
+    let text = document.getElementById("postTextArea").value;
+    this.setState({
+      posts: [...this.state.posts, <Post title = {title} text = {text}/>]
+    })
+
+    this.closeModal();
+  }
+
+  showPosts() {
+    console.log("yuh")
+    document.getElementById("comments").classList.remove("show");
+    document.getElementById("posts").classList.add("show");
+  }
+
+  showComments() {
+    document.getElementById("comments").classList.add("show");
+    document.getElementById("posts").classList.remove("show");
+  }
+
   componentDidMount() {
+    document.getElementById("submitPost").addEventListener("click", this.createPost);
+    document.getElementById("newDiscussionBtn").addEventListener("click", this.displayModal);
+    document.getElementById("minimize").addEventListener("click", this.closeModal);
+    document.getElementById("cancel").addEventListener("click", this.closeModal);
+
+    let posts = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
+    console.log(posts)
+    posts.forEach((item, i) => {
+      posts[i].addEventListener('click', this.showComments)
+    });
+
+    document.getElementById("backBtnComments").addEventListener("click", this.showPosts);
+
+
     this.navHighlight();
   }
 
@@ -34,7 +83,7 @@ class Forum extends React.Component{
     <div className="inner-wrapper">
         <div className="inner-sidebar">
             <div className="inner-sidebar-header justify-content-center">
-                <button className="btn btn-primary has-icon btn-block" type="button" data-toggle="modal" data-target="#threadModal">
+                <button id="newDiscussionBtn" className="btn btn-primary has-icon btn-block" type="button" data-toggle="modal">
 
                     NEW DISCUSSION
                 </button>
@@ -89,7 +138,8 @@ class Forum extends React.Component{
                 </span>
             </div>
 
-            <div className="inner-main-body p-2 p-sm-3 collapse forum-content show">
+            <div id="posts" className="inner-main-body p-2 p-sm-3 collapse forum-content show">
+                {this.state.posts}
                 <div className="card mb-2">
                     <div className="card-body p-2 p-sm-3">
                         <div className="media forum-item">
@@ -108,6 +158,7 @@ class Forum extends React.Component{
                         </div>
                     </div>
                 </div>
+
                 <div className="card mb-2">
                     <div className="card-body p-2 p-sm-3">
                         <div className="media forum-item">
@@ -229,8 +280,10 @@ class Forum extends React.Component{
                 </ul>
             </div>
 
-            <div className="inner-main-body p-2 p-sm-3 collapse forum-content">
-                <a href="#" className="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i className="fa fa-arrow-left mr-2"></i>Back</a>
+            <div id="comments" className="inner-main-body p-2 p-sm-3 collapse forum-content">
+
+                <a id="backBtnComments" href="#" className="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i className="fa fa-arrow-left mr-2"></i>Back</a>
+
                 <div className="card mb-2">
                     <div className="card-body">
                         <div className="media forum-item">
@@ -241,14 +294,13 @@ class Forum extends React.Component{
                             <div className="media-body ml-3">
                                 <a href="javascript:void(0)" className="text-secondary">Mokrani</a>
                                 <small className="text-muted ml-2">1 hour ago</small>
-                                <h5 className="mt-1">Relief Need</h5>
+                                <h5 className="mt-1"></h5>
                                 <div className="mt-3 font-size-sm">
                                     <p>Hellooo :)</p>
                                     <p>
-                                        I'm newbie with laravel and i want to fetch data from database in realtime for my dashboard anaytics and i found a solution with ajax but it dosen't work if any one have a simple solution it will be
-                                        helpful
+                                        Hope everyone is doing well, dm me for some suggestions on how to get through the power outages and apply for aid.
                                     </p>
-                                    <p>Thank</p>
+                                    <p>Be Safe</p>
                                 </div>
                             </div>
                             <div className="text-muted small text-center">
@@ -258,6 +310,7 @@ class Forum extends React.Component{
                         </div>
                     </div>
                 </div>
+
                 <div className="card mb-2">
                     <div className="card-body">
                         <div className="media forum-item">
@@ -269,8 +322,8 @@ class Forum extends React.Component{
                                 <a href="javascript:void(0)" className="text-secondary">drewdan</a>
                                 <small className="text-muted ml-2">1 hour ago</small>
                                 <div className="mt-3 font-size-sm">
-                                    <p>What exactly doesn't work with your ajax calls?</p>
-                                    <p>Also, WebSockets are a great solution for realtime data on a dashboard. Laravel offers this out of the box using broadcasting</p>
+                                    <p>Make sure to donate on the donate tab guys!</p>
+                                    <p>There is a list of useful foundations there, that are sure to help out.</p>
                                 </div>
                                 <button className="btn btn-xs text-muted has-icon"><i className="fa fa-heart" aria-hidden="true"></i>1</button>
                                 <a href="javascript:void(0)" className="text-muted small">Reply</a>
@@ -278,6 +331,7 @@ class Forum extends React.Component{
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -285,39 +339,41 @@ class Forum extends React.Component{
     </div>
 
 
-    <div className="modal fade" id="threadModal" tabIndex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-                <form>
-                    <div className="modal-header d-flex align-items-center bg-primary text-white">
-                        <h6 className="modal-title mb-0" id="threadModalLabel">New Discussion</h6>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <div className="form-group">
-                            <label htmlFor="threadTitle">Title</label>
-                            <input type="text" className="form-control" id="threadTitle" placeholder="Enter title" autoFocus="" />
-                        </div>
-                        <textarea className="form-control summernote" style={{display: "none"}}></textarea>
 
-                        <div className="custom-file form-control-sm mt-3" style={{maxWidth: "300px"}}>
-                            <input type="file" className="custom-file-input" id="customFile" multiple="" />
-                            <label className="custom-file-label" htmlFor="customFile">Attachment</label>
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-light" data-dismiss="modal">Cancel</button>
-                        <button type="button" className="btn btn-primary">Post</button>
-                    </div>
-                </form>
-            </div>
+</div>
+</div>
+
+<div id="post-modal" class="modal" tabIndex="-1" role="dialog">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title mb-0">New Discussion</h5>
+        <button id="minimize" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        <div className="form-group">
+          <label for="formGroupExampleInput">Post Title</label>
+          <input type="text" class="form-control" id="postTitle" placeholder=""/>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Post Content</label>
+          <textarea className="form-control" id="postTextArea" rows="3"></textarea>
         </div>
     </div>
+      <div className="modal-footer">
+        <button id="cancel" type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="submitPost" type="button" className="btn btn-primary">Post</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 </div>
-</div>
+
+
+
     )
   }
 }
