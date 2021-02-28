@@ -218,13 +218,13 @@ class Forum extends React.Component{
                 </div>
                 <ul className="pagination pagination-sm pagination-circle justify-content-center mb-0">
                     <li className="page-item disabled">
-                        <span className="page-link has-icon"><i className="material-icons">chevron_left</i></span>
+                        <span className="page-link has-icon"><i className="material-icons">back</i></span>
                     </li>
-                    <li className="page-item"><a className="page-link" href="javascript:void(0)">1</a></li>
-                    <li className="page-item active"><span className="page-link">2</span></li>
+                    <li className="page-item active"><a className="page-link" href="javascript:void(0)">1</a></li>
+                    <li className="page-item "><span className="page-link">2</span></li>
                     <li className="page-item"><a className="page-link" href="javascript:void(0)">3</a></li>
-                    <li className="page-item">
-                        <a className="page-link has-icon" href="javascript:void(0)"><i className="material-icons">chevron_right</i></a>
+                    <li className="page-item disabled">
+                        <a className="page-link has-icon" href="javascript:void(0)"><i className="material-icons">next</i></a>
                     </li>
                 </ul>
             </div>
