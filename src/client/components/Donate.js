@@ -13,9 +13,9 @@ class Donate extends React.Component{
   navHighlight() {
     let navItems = Array.from(document.getElementsByClassName("nav-link"));
     navItems.forEach((item, i) => {
-      navItems[i].classNameList.remove("active")
+      navItems[i].classList.remove("active")
     });
-    navItems[3].classNameList.add("active")
+    navItems[3].classList.add("active")
   }
 
   componentDidMount() {
@@ -68,8 +68,8 @@ class Donate extends React.Component{
                           <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                               <div className="portfolio-item-caption-content text-center text-white"><i className="fas fa-plus fa-3x"></i></div>
                           </div>
-                          <a href="https://secure3.convio.net/cafbtx/site/Donation2;jsessionid=00000000.app30130a?idb=752922375&df_id=19661&mfc_pref=T&19661.donation=form1&NONCE_TOKEN=F7CF073193F494C0D53A16EE367C367D&19661_donation=form1" target="_blank">
-                            <img className="img-fluid" src={require("../../../public/ctfb.png")}alt="" style={{height:"270px", position:"absolute", left:"100px"}}/>
+                          <a href="https://spiritofgiving.tamu.edu/o/texas-am-university/i/spirit-of-giving/s/winter-storm-student-aid" target="_blank">
+                            <img className="img-fluid" src={require("../../../public/cftb.png")}alt="" style={{height:"210px", position:"absolute", left:"100px", top:"25px"}}/>
                           </a>
                       </div>
                   </div>
