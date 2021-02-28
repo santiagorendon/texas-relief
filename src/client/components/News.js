@@ -37,7 +37,8 @@ class News extends React.Component{
   }
 
    getNews(tags) {
-    let subscriptionKey = '8d6cbfdda76342e0afe828481020bd84';
+    console.log("getting news")
+    let subscriptionKey = '2fc3dc1d8fef45d59bd16eb0dbb9bfb1';
     let host = 'api.bing.microsoft.com';
     let path = '/v7.0/news/search';
     let searchTerms = "texas";
