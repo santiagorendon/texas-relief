@@ -15,6 +15,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+          <Route path="/" render={() => ( <Map /> )} exact/>
           <Route path="/map" render={() => ( <Map /> )} exact/>
           <Route path="/forums" render={() => ( <Forum /> )} exact/>
           <Route path="/donate" render={() => ( <Donate /> )} exact/>
