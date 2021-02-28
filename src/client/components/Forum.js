@@ -241,7 +241,7 @@ class Forum extends React.Component{
                             <div className="media-body ml-3">
                                 <a href="javascript:void(0)" className="text-secondary">Mokrani</a>
                                 <small className="text-muted ml-2">1 hour ago</small>
-                                <h5 className="mt-1">Realtime fetching data</h5>
+                                <h5 className="mt-1">Relief Need</h5>
                                 <div className="mt-3 font-size-sm">
                                     <p>Hellooo :)</p>
                                     <p>
