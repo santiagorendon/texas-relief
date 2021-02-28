@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import Map from './components/Map';
+import Forum from './components/Forum';
+import Donate from './components/Donate';
+
 import { BrowserRouter, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 
 class App extends Component {
@@ -11,6 +15,8 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Route path="/map" render={() => ( <Map /> )} exact/>
+          <Route path="/forums" render={() => ( <Forum /> )} exact/>
+          <Route path="/donate" render={() => ( <Donate /> )} exact/>
 
         </div>
       </BrowserRouter>
