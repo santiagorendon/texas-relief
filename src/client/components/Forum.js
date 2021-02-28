@@ -149,9 +149,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar4.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Top rated filter not working</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Links</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    Can anyone share helpful resources on guides for surviving through the power outages?
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">bugsysha</a> replied <span className="text-secondary font-weight-bold">11 hours ago</span></p>
                             </div>
@@ -167,9 +167,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar5.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Create a delimiter field</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">San Antonio</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    Did anyone else's power go out in san antonio today?
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">jackalds</a> replied <span className="text-secondary font-weight-bold">12 hours ago</span></p>
                             </div>
@@ -185,9 +185,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">One model 4 tables</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Foundations</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                  Anyone know what other relief foundations we can add to the site?
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">bugsysha</a> replied <span className="text-secondary font-weight-bold">14 hours ago</span></p>
                             </div>
@@ -203,9 +203,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Auth attempt returns false</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Apply for aid</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    Anyone know how we can apply for relief/aid if we have been effected?
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">michaeloravec</a> replied <span className="text-secondary font-weight-bold">18 hours ago</span></p>
                             </div>
