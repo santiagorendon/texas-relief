@@ -19,3 +19,8 @@
     margin-right: 15px;
     margin-bottom: 20px;
 }
+
+.card-img-top {
+    width: 100px;
+    height: 200px;
+}
