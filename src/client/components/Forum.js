@@ -18,7 +18,13 @@ class Forum extends React.Component{
     navItems[2].classList.add("active")
   }
 
+  displayModal() {
+    const modal = document.getElementById("post-modal");
+    modal.style.display = "block";
+  }
+
   componentDidMount() {
+    document.getElementById("newDiscussionBtn").addEventListener("click", this.displayModal);
     this.navHighlight();
   }
 
@@ -34,7 +40,7 @@ class Forum extends React.Component{
     <div className="inner-wrapper">
         <div className="inner-sidebar">
             <div className="inner-sidebar-header justify-content-center">
-                <button className="btn btn-primary has-icon btn-block" type="button" data-toggle="modal" data-target="#threadModal">
+                <button id="newDiscussionBtn" className="btn btn-primary has-icon btn-block" type="button" data-toggle="modal">
 
                     NEW DISCUSSION
                 </button>
@@ -285,39 +291,34 @@ class Forum extends React.Component{
     </div>
 
 
-    <div className="modal fade" id="threadModal" tabIndex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-lg" role="document">
-            <div className="modal-content">
-                <form>
-                    <div className="modal-header d-flex align-items-center bg-primary text-white">
-                        <h6 className="modal-title mb-0" id="threadModalLabel">New Discussion</h6>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <div className="form-group">
-                            <label htmlFor="threadTitle">Title</label>
-                            <input type="text" className="form-control" id="threadTitle" placeholder="Enter title" autoFocus="" />
-                        </div>
-                        <textarea className="form-control summernote" style={{display: "none"}}></textarea>
 
-                        <div className="custom-file form-control-sm mt-3" style={{maxWidth: "300px"}}>
-                            <input type="file" className="custom-file-input" id="customFile" multiple="" />
-                            <label className="custom-file-label" htmlFor="customFile">Attachment</label>
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-light" data-dismiss="modal">Cancel</button>
-                        <button type="button" className="btn btn-primary">Post</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+</div>
+</div>
+
+<div id="post-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
 </div>
+
 </div>
-</div>
+
+
+
     )
   }
 }
