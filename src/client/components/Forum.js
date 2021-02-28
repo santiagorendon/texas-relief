@@ -95,9 +95,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Realtime fetching data</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Relief Areas</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    Anyone know what areas are in most need? Where should we focus relief efforts? Thanks.
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">drewdan</a> replied <span className="text-secondary font-weight-bold">13 minutes ago</span></p>
                             </div>
@@ -113,9 +113,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Laravel 7 database backup</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Stories</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    Anyone have any stories they want to share with us, Its imporant to spread information on how in need Texans are doing.
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">jlrdw</a> replied <span className="text-secondary font-weight-bold">3 hours ago</span></p>
                             </div>
@@ -131,9 +131,9 @@ class Forum extends React.Component{
                         <div className="media forum-item">
                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" className="mr-3 rounded-circle" width="50" alt="User" /></a>
                             <div className="media-body">
-                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Http client post raw content</a></h6>
+                                <h6><a href="#" data-toggle="collapse" data-target=".forum-content" className="text-body">Power Restoration</a></h6>
                                 <p className="text-secondary">
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                  How long have your neighborhoods taken to restore power? Anyone have any ideas how we can speed up the recovery time?
                                 </p>
                                 <p className="text-muted"><a href="javascript:void(0)">ciungulete</a> replied <span className="text-secondary font-weight-bold">7 hours ago</span></p>
                             </div>
