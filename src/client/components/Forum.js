@@ -12,7 +12,7 @@ class Forum extends React.Component{
     this.componentDidMount = this.componentDidMount.bind(this);
       this.createPost = this.createPost.bind(this);
   }
-
+  
   navHighlight() {
     let navItems = Array.from(document.getElementsByClassName("nav-link"));
     navItems.forEach((item, i) => {
