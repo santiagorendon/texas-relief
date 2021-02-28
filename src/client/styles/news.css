@@ -1,0 +1,16 @@
+.max-lines {
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.navbar {
+    margin-bottom: 25px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #343A3F;
+}
