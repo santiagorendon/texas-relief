@@ -12,7 +12,7 @@ class Forum extends React.Component{
     this.componentDidMount = this.componentDidMount.bind(this);
       this.createPost = this.createPost.bind(this);
   }
-  
+
   navHighlight() {
     let navItems = Array.from(document.getElementsByClassName("nav-link"));
     navItems.forEach((item, i) => {
@@ -31,10 +31,41 @@ class Forum extends React.Component{
     modal.style.display = "none";
   }
 
-  createPost() {
+  fetchPosts() {
+    let tmpArray = [];
 
+    fetch('/api/get-posts')
+    .then((response) =>{
+      return response.json();
+    })
+    .then((data) =>{
+      data.forEach((item, i) => {
+        tmpArray.push(<Post title = {item.postTitle} text = {item.postContent}/>)
+      });
+      return tmpArray;
+    })
+    .then((res) =>{
+      this.setState({
+        posts: res
+      })
+    })
+
+  }
+
+  createPost() {
     let title = document.getElementById("postTitle").value;
     let text = document.getElementById("postTextArea").value;
+    fetch('/api/create-post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `title=${title}&content=${text}`
+    })
+    .then(function(response) {
+      return response.json();
+    });
+
     this.setState({
       posts: [...this.state.posts, <Post title = {title} text = {text}/>]
     })
@@ -43,7 +74,6 @@ class Forum extends React.Component{
   }
 
   showPosts() {
-    console.log("yuh")
     document.getElementById("comments").classList.remove("show");
     document.getElementById("posts").classList.add("show");
   }
@@ -59,8 +89,9 @@ class Forum extends React.Component{
     document.getElementById("minimize").addEventListener("click", this.closeModal);
     document.getElementById("cancel").addEventListener("click", this.closeModal);
 
+    this.fetchPosts();
+
     let posts = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
-    console.log(posts)
     posts.forEach((item, i) => {
       posts[i].addEventListener('click', this.showComments)
     });

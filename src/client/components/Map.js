@@ -11,6 +11,7 @@ class Map extends React.Component{
     this.componentDidMount = this.componentDidMount.bind(this);
     this.addMarker = this.addMarker.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
+    this.saveMarker = this.saveMarker.bind(this);
     this.cancel = this.cancel.bind(this);
   }
 
@@ -45,6 +46,20 @@ class Map extends React.Component{
     }
   }
 
+  saveMarker() {
+    fetch('/api/create-marker', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `lat=${this.marker.position.lat()}&lng=${this.marker.position.lng()}`
+    })
+    .then(function(response) {
+      return response.json();
+    });
+    this.closeModal();
+  }
+
   closeModal() {
     const modal = document.getElementById("save-changes-modal");
     modal.style.display = "none";
@@ -57,20 +72,17 @@ class Map extends React.Component{
     modal.style.display = "block";
   }
 
-  dummyData(map) {
-    this.addMarker({map: map, coords: { lat: 30 , lng: -102 }, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 30, lng:-100}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 31.7, lng:-100.6}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 30.7, lng:-96.7}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 30, lng:-100}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 30, lng:-96.4}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 29.4, lng:-98.5}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 30, lng:-100}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 29.3, lng:-98.4}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 29.2, lng:-98.6}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 29, lng:-98}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 28.9, lng:-99}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
-    this.addMarker({map: map, coords: { lat: 28.5, lng:-98.5}, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
+  fetchMarkers(map) {
+    fetch('/api/get-markers')
+    .then((response) =>{
+      return response.json();
+    })
+    .then((data) =>{
+      data.forEach((item, i) => {
+        this.addMarker({map: map, coords: { lat: item.lat , lng: item.lng }, iconImage: 'https://www.rooseveltppd.com/sites/rooseveltppd/files/icons/icons8-voltage-480.png'});
+      });
+
+    });
   }
 
   createSearchBar(map) {
@@ -148,7 +160,7 @@ class Map extends React.Component{
 
       this.createLegend(map);
 
-      this.dummyData(map);
+      this.fetchMarkers(map);
 
       google.maps.event.addListener(map, 'click',
        (event) => {
@@ -173,7 +185,7 @@ class Map extends React.Component{
   componentDidMount() {
     document.getElementById("minimize").addEventListener("click", this.cancel);
     document.getElementById("cancel-modal").addEventListener("click", this.cancel);
-    document.getElementById("save-modal").addEventListener("click", this.closeModal);
+    document.getElementById("save-modal").addEventListener("click", this.saveMarker);
     this.initMap();
   }
 

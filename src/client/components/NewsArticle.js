@@ -17,6 +17,7 @@ class NewsArticle extends React.Component{
               <img className="card-img-top" src={this.props.article.image != null ? this.props.article.image.contentUrl : "https://previews.123rf.com/images/winnond/winnond1011/winnond101100148/8211629-stock-market-newspaper.jpg"  } alt="Card image cap"></img>
               <div className="card-body">
                   <h5 className="card-title max-lines">{this.props.article.name}</h5>
+                  <p>{this.props.article.provider[0].name}</p>
               </div>
           </div>
         </a>
