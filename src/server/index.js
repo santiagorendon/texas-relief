@@ -91,7 +91,8 @@ app.post('/api/create-post', (req, res) => {
 })
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('/src/client/build'))
+  app.use(express.static('/src/dist'));
+  app.get('*', (req, res)=>res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html')));
 }
 
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));

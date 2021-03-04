@@ -8,8 +8,8 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "install-client": "cd src/client && npm install",
+    "heroku-postbuild": "webpack -p", // runs after installation
     "start": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",

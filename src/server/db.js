@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-
+const path = require('path');
+require('dotenv').config({path: '/Users/santiagorendon/Desktop/texas-relief/.env'});
 
 const Post= new mongoose.Schema({
   username: {
@@ -25,7 +25,7 @@ const Marker = new mongoose.Schema({
 
 mongoose.model('Marker', Marker);
 mongoose.model('Post', Post);
-mongoose.connect("mongodb+srv://admin:admin@cluster0.gtzfn.mongodb.net/relief?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 })
     .then(db => console.log(`DB is connected`))
