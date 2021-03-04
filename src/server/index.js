@@ -93,7 +93,7 @@ app.post('/api/create-post', (req, res) => {
 
 if(process.env.NODE_ENV === 'production') {
   //app.use(express.static('/src/dist'));
-  //app.use(express.static(path.join(__dirname, 'dist')));
+  app.use(express.static(path.join(__dirname, '../dist')));
   //app.get('*', (req, res)=>res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html')));
 }
 
